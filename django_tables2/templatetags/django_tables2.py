@@ -109,6 +109,7 @@ class QuerystringNode(Node):
         self.removals = removals
 
     def render(self, context):
+        print('context', context)
         if not 'request' in context:
             raise ImproperlyConfigured(context_processor_error_msg
                                        % 'querystring')
