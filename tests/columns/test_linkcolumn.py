@@ -2,13 +2,13 @@
 # pylint: disable=R0912,E0102
 from __future__ import unicode_literals
 
-import pytest
+import django_tables2 as tables
 from django.core.urlresolvers import reverse
 from django.template import Context, Template
 from django.utils.html import mark_safe
-
-import django_tables2 as tables
 from django_tables2 import A
+
+import pytest
 
 from ..app.models import Person
 from ..utils import attrs, build_request, warns
@@ -155,4 +155,4 @@ def test_get_absolute_url_not_defined():
     ])
 
     with pytest.raises(TypeError):
-        table.as_html()
+        table.as_html(build_request('/'))
